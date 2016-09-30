@@ -1,4 +1,4 @@
-package a1;
+package assignment1;
 
 public interface A1Queue<E> {
 	public void enqueue(E element);

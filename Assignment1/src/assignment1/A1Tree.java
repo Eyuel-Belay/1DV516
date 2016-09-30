@@ -1,6 +1,6 @@
-package a1;
+package assignment1;
 
-import a1.A1TreeNode;
+import assignment1.A1TreeNode;
 
 public interface A1Tree<E> {
 	public A1TreeNode<E> root();

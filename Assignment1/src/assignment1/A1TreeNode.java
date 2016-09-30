@@ -1,4 +1,4 @@
-package a1;
+package assignment1;
 
 public interface A1TreeNode<E> {
 	public boolean isJsonObject();

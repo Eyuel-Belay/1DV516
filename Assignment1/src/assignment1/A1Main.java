@@ -1,7 +1,7 @@
-package a1;
+package assignment1;
 
-import a1.A1Queue;
-import a1.A1Tree;
+import assignment1.A1Queue;
+import assignment1.A1Tree;
 
 public interface A1Main {
 	public A1Queue<String> constructQueue(String jsonFilename);

@@ -1,4 +1,4 @@
-package a1;
+package assignment1;
 
 public interface A1Stack<E> {
 	public void push(E element);
