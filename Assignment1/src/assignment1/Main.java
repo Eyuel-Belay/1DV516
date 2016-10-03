@@ -21,11 +21,20 @@ public class Main implements A1Main {
     public A1Queue<String> constructQueue(String jsonFilename){
         
     }
+    
     public A1Tree<String> constructTree(A1Queue<String> jsonQueue){
-        
+        A1Tree<String> myTree = new MyTree<String>();
+        while(jsonQueue.length() > 0){
+            MyTreeNode<String> myNode = new MyTreeNode(jsonQueue.dequeue());
+            if(myTree.root() == null){
+                myTree.addChild(null, myNode);
+            }
+        }
+        return myTree;
     }
+    
     public void printTree(A1Tree<String> jsonTree){
-        
+        jsonTree.printTree();
     }
     
 }

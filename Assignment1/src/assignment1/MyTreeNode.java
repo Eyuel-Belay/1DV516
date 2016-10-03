@@ -12,13 +12,16 @@ package assignment1;
 public class MyTreeNode<E> implements A1TreeNode<E> {
     
     E element;
+    MyTreeNode<E> parent;
     
     public MyTreeNode(E elem){
         this.element = elem;
+        parent = null;
     }
     
     public boolean isJsonObject(){
         //TODO: implement
+        
         return true;
     }
     public boolean isJsonArray(){

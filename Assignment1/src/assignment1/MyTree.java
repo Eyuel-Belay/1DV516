@@ -26,6 +26,13 @@ public class MyTree<E> implements A1Tree<E> {
         if(parent == null){
             root = child;
         }
+        if(parent.isJsonObject()){
+            
+        }
+        
+        if(parent.isJsonArray()){
+            
+        }
     }
     public int size(){
         return size;
