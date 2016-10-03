@@ -11,23 +11,72 @@ import assignment1.A1Queue;
  *
  * @author Ludwig
  */
-public class MyQueue implements A1Queue{
+public class MyQueue<E> implements A1Queue<E>{
+    
+    int length;
+    Node first;
+    Node last;
+    
+    public void MyQueue(){
+        length = 0;
+        first = null;
+        last = null;
+    }
 
+    @Override
     public void enqueue(E element){
-        
+        if(first == null){
+            first = new Node(element);
+            last = first;
+        }
+        else{
+            last.next = new Node(element);
+            last = last.next;
+        }
+        length++;
     }
-    
+   
+    @Override
     public E dequeue(){
-        
-    }
-    public E peek(){
-        
-    }
-    public int length(){
-        return 1;
+        Node toBeRemoved = first;
+        if(first.next != null){
+            first = first.next;
+        }
+        if(first.next == null){
+            first = null;
+            last = null;
+        }
+        length--;
+        return toBeRemoved.getValue();
     }
     
-    private class E{
+    @Override
+    public E peek(){
+        return first.getValue();
+    }
+    
+    @Override
+    public int length(){
+        return length;
+    }
+    
+    public boolean isEmpty(){
+        if(first == null){
+            return true;
+        }
+        else
+            return false;
+    }
+    
+    private class Node{
+        Node next;
+        E elem;
         
+        public Node(E element){
+            elem = element;
+        }
+        public E getValue(){
+            return elem;
+        }
     }
 }
