@@ -5,6 +5,10 @@
  */
 package assignment1;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 /**
  *
  * @author Ludwig
@@ -19,7 +23,15 @@ public class Main implements A1Main {
     }
     
     public A1Queue<String> constructQueue(String jsonFilename){
-        
+        try{
+            File inputFile = new File(jsonFilename);
+            Scanner in = new Scanner(inputFile);
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        A1Queue queue = new MyQueue();
+        return queue;
     }
     
     public A1Tree<String> constructTree(A1Queue<String> jsonQueue){
