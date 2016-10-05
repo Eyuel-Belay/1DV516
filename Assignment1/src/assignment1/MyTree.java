@@ -33,6 +33,7 @@ public class MyTree<E> implements A1Tree<E> {
         if(parent.isJsonArray()){
             
         }
+        
     }
     public int size(){
         return size;

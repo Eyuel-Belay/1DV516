@@ -13,23 +13,33 @@ public class MyTreeNode<E> implements A1TreeNode<E> {
     
     E element;
     MyTreeNode<E> parent;
+    String elementString;
     
     public MyTreeNode(E elem){
-        this.element = elem;
+        element = elem;
         parent = null;
+        elementString = element.toString();
     }
     
     public boolean isJsonObject(){
-        //TODO: implement
-        
-        return true;
+        if(elementString.equals("{") || elementString.equals("}")){
+            return true;
+        }
+        else
+            return false;
     }
     public boolean isJsonArray(){
-        //TODO: implement
-        return true;
+        if(elementString.equals("[") || elementString.equals("]")){
+            return true;
+        }
+        else
+            return false;
     }
     public boolean isJsonPrimitive(){
-        return true;
-        //TODO: implement
+        if(isJsonObject() || isJsonArray()){
+            return false;
+        }
+        else
+            return true;
     }
 }
