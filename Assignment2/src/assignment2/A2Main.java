@@ -1,4 +1,4 @@
-package a2;
+package assignment2;
 
 import java.util.List;
 import java.util.Map;

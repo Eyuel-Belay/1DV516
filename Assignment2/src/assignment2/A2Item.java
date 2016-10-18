@@ -1,4 +1,4 @@
-package a2;
+package assignment2;
 
 public interface A2Item {
 	public String getPerformer();
