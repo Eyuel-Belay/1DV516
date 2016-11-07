@@ -31,17 +31,6 @@ public class Main implements A2Main {
         List<A2Item> inputs = main.readCSVFile("input.txt");
         
         main.printResults(main.compareAlgorithms(inputs));
-        
-        HashMap<A2Item, String> map = new HashMap<>();
-        for(A2Item item : inputs){
-            map.put(item, item.getPerformer());
-        }
-        for(A2Item item : map.keySet()){
-            A2Item key = item;
-            String value = map.get(key);
-            System.out.println(key.getPerformer() + " " + value);
-        }
-        
     }
     
     public List<A2Item> readCSVFile(String filename){
