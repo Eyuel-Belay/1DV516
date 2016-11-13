@@ -60,11 +60,48 @@ public class MyTree implements A1Tree {
         for(int i = 0; i < length; i++){
             MyTreeNode temp = (MyTreeNode)n.getChildren().dequeue();
             if(temp.hasChildren()){
-                System.out.println("\t" + indentation + temp.element);
+                System.out.println( temp.element);
                 printChildren(temp, indent += 1);
             }
             else{
-                System.out.println(indentation + temp.element);
+                if(temp.element.equals(":")){
+                    System.out.print(temp.element + " ");
+                }
+                else if(temp.parent.element.equals("{") && temp.element.equals(",")){
+                    System.out.println(temp.element);
+                }
+                
+                else if(temp.parent.element.equals("[") && temp.element.equals(",")){
+                    if(temp.parent.hasChildren()){
+                        MyTreeNode secTemp = (MyTreeNode)n.getChildren().peek();
+                        if(secTemp.element.equals("[") || secTemp.element.equals("{")){
+                            System.out.print(temp.element + " ");
+                        }
+                        else{
+                            System.out.println(temp.element);
+                        }
+                    }
+                    else{
+                        System.out.println(temp.element);
+                    }
+                }
+                
+                else if(i == (length - 2) && temp.parent.element.equals("[")){
+                    System.out.println(indentation + temp.element);
+                }
+                else if(i == (length - 2) && temp.parent.element.equals("{")){
+                    System.out.println(temp.element);
+                }
+                        
+                else if(temp.element.equals("}")){
+                    System.out.print(indentation + temp.element);
+                }
+                else if(temp.element.equals("]")){
+                    System.out.println(indentation + temp.element);
+                }
+                else{
+                    System.out.print(indentation + temp.element);
+                }
             }
         }
     }
