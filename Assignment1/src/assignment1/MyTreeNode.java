@@ -9,37 +9,37 @@ package assignment1;
  *
  * @author LudeersBärbara
  */
-public class MyTreeNode<E> implements A1TreeNode<E> {
+public class MyTreeNode implements A1TreeNode {
     
-    E element;
-    MyTreeNode<E> parent;
-    String elementString;
+    Object element;
+    MyQueue<MyTreeNode> children;
+    MyTreeNode parent;
     
-    public MyTreeNode(E elem){
+    public MyTreeNode(Object elem){
         element = elem;
-        parent = null;
-        elementString = element.toString();
+        children = new MyQueue<>();
     }
     
+    @Override
     public boolean isJsonObject(){
-        if(elementString.equals("{") || elementString.equals("}")){
-            return true;
-        }
-        else
-            return false;
+        return element.equals("{");
     }
+    
+    @Override
     public boolean isJsonArray(){
-        if(elementString.equals("[") || elementString.equals("]")){
-            return true;
-        }
-        else
-            return false;
+        return element.equals("[");
     }
+    
+    @Override
     public boolean isJsonPrimitive(){
-        if(isJsonObject() || isJsonArray()){
-            return false;
-        }
-        else
-            return true;
+        return !(isJsonObject() || isJsonArray());
+    }
+    
+    public MyQueue<MyTreeNode> getChildren(){
+        return children;
+    }
+    
+    public boolean hasChildren(){
+        return !children.isEmpty();
     }
 }

@@ -11,7 +11,7 @@ import assignment1.A1Queue;
  *
  * @author Ludwig
  */
-public class MyQueue<E> implements A1Queue<E>{
+public class MyQueue<E> implements A1Queue{
     
     int length;
     Node first;
@@ -24,7 +24,7 @@ public class MyQueue<E> implements A1Queue<E>{
     }
 
     @Override
-    public void enqueue(E element){
+    public void enqueue(Object element){
         if(first == null){
             first = new Node(element);
             last = first;
@@ -37,21 +37,18 @@ public class MyQueue<E> implements A1Queue<E>{
     }
    
     @Override
-    public E dequeue(){
+    public Object dequeue(){
         Node toBeRemoved = first;
-        if(first.next != null){
-            first = first.next;
-        }
-        if(first.next == null){
-            first = null;
-            last = null;
-        }
+        first = first.next;
         length--;
+        if(first == null){
+            first = null;
+        }
         return toBeRemoved.getValue();
     }
     
     @Override
-    public E peek(){
+    public Object peek(){
         return first.getValue();
     }
     
@@ -61,21 +58,18 @@ public class MyQueue<E> implements A1Queue<E>{
     }
     
     public boolean isEmpty(){
-        if(first == null){
-            return true;
-        }
-        else
-            return false;
+        return first == null;
     }
     
     private class Node{
         Node next;
-        E elem;
+        Object elem;
         
-        public Node(E element){
+        public Node(Object element){
             elem = element;
+            next = null;
         }
-        public E getValue(){
+        public Object getValue(){
             return elem;
         }
     }

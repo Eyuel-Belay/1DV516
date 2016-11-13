@@ -9,7 +9,7 @@ package assignment1;
  *
  * @author LudeersBärbara
  */
-public class MyStack<E> implements A1Stack<E> {
+public class MyStack<E> implements A1Stack {
     int size;
     Node top;
     
@@ -18,7 +18,7 @@ public class MyStack<E> implements A1Stack<E> {
         top = null;
     }
     
-    public void push(E element){
+    public void push(Object element){
         if(top == null){
             top = new Node(element);
         }
@@ -31,14 +31,16 @@ public class MyStack<E> implements A1Stack<E> {
         size++;
     }
     
-    public E pop(){
+    public Object pop(){
         Node nodeToBeRemoved = top;
         top = top.previous;
-        top.next = null;
+        if(top != null){
+            top.next = null;
+        }
         return nodeToBeRemoved.element;
     }
     
-    public E peek(){
+    public Object peek(){
         return top.element;
     }
     
@@ -48,11 +50,11 @@ public class MyStack<E> implements A1Stack<E> {
     
     private class Node{
         
-        E element;
+        Object element;
         Node next;
         Node previous;
         
-        public Node(E elem){
+        public Node(Object elem){
             element = elem;
             next = null;
             previous = null;
